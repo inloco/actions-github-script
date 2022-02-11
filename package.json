@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "build": "ncc build src/main.ts",
+    "build": "ncc build -o dist/main src/main.ts && ncc build -o dist/post src/post.ts",
     "format:check": "prettier --check src __test__",
     "format:write": "prettier --write src __test__",
     "lint": "eslint src __test__",
