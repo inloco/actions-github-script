@@ -5,9 +5,15 @@ branding:
   color: blue
   icon: code
 inputs:
-  script:
+  prelude:
+    description: The script to include before all scripts
+    required: false
+  main:
     description: The script to run
-    required: true
+    required: false
+  post:
+    description: The script to run on job post phase
+    required: false
   github-token:
     description: The GitHub token used to create an authenticated client
     default: ${{ github.token }}
@@ -28,4 +34,5 @@ outputs:
     description: The return value of the script, stringified with `JSON.stringify`
 runs:
   using: node16
-  main: dist/index.js
+  main: dist/main/index.js
+  post: dist/post/index.js
